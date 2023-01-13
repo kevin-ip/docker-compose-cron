@@ -1,0 +1,8 @@
+version: '3.9'
+
+services: 
+  hello-cron:
+    image: hello
+    command: bash -c "crontab /etc/cron.d/cron-file; cron -f"
+    volumes:
+      - ${PWD}/cron-file:/etc/cron.d/cron-file
